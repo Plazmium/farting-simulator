@@ -153,6 +153,10 @@ partial class SandboxPlayer : Player
 		{
 			sound = PlaySound( "fart" );
 		}
+		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
+		{
+			sound = PlaySound( "burb" );
+		}
 	}
 
 	void SimulateAnimation( PawnController controller )
