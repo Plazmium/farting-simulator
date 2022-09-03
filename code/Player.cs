@@ -100,7 +100,7 @@ partial class SandboxPlayer : Player
 		return base.GetActiveController();
 	}
 
-	public override async void Simulate( Client cl )
+	public override void Simulate( Client cl )
 	{
 		base.Simulate( cl );
 
@@ -153,17 +153,17 @@ partial class SandboxPlayer : Player
 		if (Input.Pressed( InputButton.PrimaryAttack ) & sound.Finished & IsServer )
 		{
 			sound = PlaySound( "fart" );
-			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
+			UpdateLeaderboard( cl.PlayerId, 1, "fart" );
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
 			sound = PlaySound( "burb" );
-			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
+			UpdateLeaderboard( cl.PlayerId, 1, "burb" );
 		}
 		if ( Input.Pressed( InputButton.Menu ) & deathSound.Finished & IsServer )
 		{
 			deathSound = PlaySound( "death" );
-			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
+			UpdateLeaderboard( cl.PlayerId, 1, "death" );
 		}
 
 		if ( IsServer )
@@ -177,6 +177,12 @@ partial class SandboxPlayer : Player
 				TakeDamage( damageInfo );
 			}
 		}
+	}
+
+	async void UpdateLeaderboard(long id, float score, string boardName)
+	{
+		await GameServices.UpdateLeaderboard( id,score );
+		await GameServices.UpdateLeaderboard( id,score, boardName );
 	}
 
 	void SimulateAnimation( PawnController controller )
