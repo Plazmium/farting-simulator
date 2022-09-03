@@ -22,7 +22,8 @@
     "ProjectTemplate": null,
     "GameCategory": "Meme",
     "ControlModes": {
-      "Keyboard": true
+      "Keyboard": true,
+      "Gamepad": true
     }
   }
 }
