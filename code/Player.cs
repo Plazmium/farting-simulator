@@ -160,7 +160,7 @@ partial class SandboxPlayer : Player
 			sound = PlaySound( "burb" );
 			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
 		}
-		if ( Input.Pressed( InputButton.Menu ) & sound.Finished & IsServer )
+		if ( Input.Pressed( InputButton.Menu ) & deathSound.Finished & IsServer )
 		{
 			deathSound = PlaySound( "death" );
 			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
