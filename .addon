@@ -16,9 +16,9 @@
     "GameNetworkType": "Multiplayer",
     "MapSelect": "Unrestricted",
     "MapList": [],
-    "RankType": "None",
+    "RankType": "Increment",
     "PerMapRanking": false,
-    "LeaderboardType": "None",
+    "LeaderboardType": "Descending",
     "ProjectTemplate": null,
     "GameCategory": "Meme",
     "ControlModes": {

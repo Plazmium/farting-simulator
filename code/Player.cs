@@ -100,7 +100,7 @@ partial class SandboxPlayer : Player
 		return base.GetActiveController();
 	}
 
-	public override void Simulate( Client cl )
+	public override async void Simulate( Client cl )
 	{
 		base.Simulate( cl );
 
@@ -153,14 +153,17 @@ partial class SandboxPlayer : Player
 		if (Input.Pressed( InputButton.PrimaryAttack ) & sound.Finished & IsServer )
 		{
 			sound = PlaySound( "fart" );
+			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
 			sound = PlaySound( "burb" );
+			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
 		}
 		if ( Input.Pressed( InputButton.Menu ) & sound.Finished & IsServer )
 		{
 			deathSound = PlaySound( "death" );
+			await GameServices.UpdateLeaderboard( cl.PlayerId, 1 );
 		}
 
 		if ( IsServer )
