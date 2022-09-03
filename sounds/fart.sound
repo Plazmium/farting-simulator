@@ -1,0 +1,74 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	data = 
+	{
+		UI = false
+		Volume = 1
+		VolumeRandom = 0
+		Pitch = 1
+		PitchRandom = 0
+		Decibels = 120
+		Sounds = 
+		[
+			resource:"sounds/wet fart meme - sound effect (hd).vsnd",
+			resource:"sounds/253802__jagadamba__fart-01.vsnd",
+			resource:"sounds/253801__jagadamba__fart-02.vsnd",
+			resource:"sounds/253800__jagadamba__fart-03.vsnd",
+			resource:"sounds/253799__jagadamba__fart-04.vsnd",
+			resource:"sounds/253806__jagadamba__fart-05.vsnd",
+			resource:"sounds/253805__jagadamba__fart-06.vsnd",
+			resource:"sounds/253804__jagadamba__fart-07.vsnd",
+			resource:"sounds/253803__jagadamba__fart-08.vsnd",
+			resource:"sounds/253808__jagadamba__fart-09.vsnd",
+			resource:"sounds/253807__jagadamba__fart-10.vsnd",
+			resource:"sounds/253842__jagadamba__fart-11.vsnd",
+			resource:"sounds/253841__jagadamba__fart-12.vsnd",
+			resource:"sounds/253840__jagadamba__fart-13.vsnd",
+			resource:"sounds/253838__jagadamba__fart-14.vsnd",
+			resource:"sounds/253846__jagadamba__fart-15.vsnd",
+			resource:"sounds/253845__jagadamba__fart-16.vsnd",
+			resource:"sounds/253844__jagadamba__fart-17.vsnd",
+			resource:"sounds/253843__jagadamba__fart-19.vsnd",
+			resource:"sounds/253849__jagadamba__fart20.vsnd",
+			resource:"sounds/253848__jagadamba__fart-21.vsnd",
+			resource:"sounds/253821__jagadamba__fart-22.vsnd",
+			resource:"sounds/253822__jagadamba__fart-23.vsnd",
+			resource:"sounds/253819__jagadamba__fart-24.vsnd",
+			resource:"sounds/253820__jagadamba__fart-25.vsnd",
+			resource:"sounds/253825__jagadamba__fart-26.vsnd",
+			resource:"sounds/253826__jagadamba__fart-27.vsnd",
+			resource:"sounds/253823__jagadamba__fart-28.vsnd",
+			resource:"sounds/253824__jagadamba__fart-29.vsnd",
+			resource:"sounds/253813__jagadamba__fart-30.vsnd",
+			resource:"sounds/253814__jagadamba__fart-31.vsnd",
+			resource:"sounds/253858__jagadamba__fart32.vsnd",
+			resource:"sounds/253857__jagadamba__fart33.vsnd",
+			resource:"sounds/253860__jagadamba__fart-34.vsnd",
+			resource:"sounds/253859__jagadamba__fart-35.vsnd",
+			resource:"sounds/253862__jagadamba__fart-36.vsnd",
+			resource:"sounds/253861__jagadamba__fart-37.vsnd",
+			resource:"sounds/253864__jagadamba__fart-38.vsnd",
+			resource:"sounds/253863__jagadamba__fart-39.vsnd",
+			resource:"sounds/253853__jagadamba__fart40.vsnd",
+			resource:"sounds/253852__jagadamba__fart41.vsnd",
+			resource:"sounds/253811__jagadamba__fart-42.vsnd",
+			resource:"sounds/253812__jagadamba__fart-43.vsnd",
+			resource:"sounds/253810__jagadamba__fart-44.vsnd",
+			resource:"sounds/253833__jagadamba__fart-45.vsnd",
+			resource:"sounds/253815__jagadamba__fart-46.vsnd",
+			resource:"sounds/253816__jagadamba__fart-47.vsnd",
+			resource:"sounds/253817__jagadamba__fart-48.vsnd",
+			resource:"sounds/253818__jagadamba__fart-49.vsnd",
+			resource:"sounds/253835__jagadamba__fart-50.vsnd",
+			resource:"sounds/253836__jagadamba__fart-51.vsnd",
+			resource:"sounds/253830__jagadamba__fart-52.vsnd",
+			resource:"sounds/253854__jagadamba__fart53.vsnd",
+			resource:"sounds/253851__jagadamba__fart54.vsnd",
+			resource:"sounds/253847__jagadamba__fart-55.vsnd",
+			resource:"sounds/wet fart - sound effect.vsnd",
+		]
+		SelectionMode = "Random"
+		MaximumDistance = 3299.7227
+		MinimumDistance = 164.98613
+	}
+}
