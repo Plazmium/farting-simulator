@@ -8,6 +8,7 @@ partial class SandboxPlayer : Player
 	private DamageInfo lastDamage;
 
 	private Sound sound;
+	private Sound deathSound;
 
 
 	/// <summary>
@@ -156,6 +157,22 @@ partial class SandboxPlayer : Player
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
 			sound = PlaySound( "burb" );
+		}
+		if ( Input.Pressed( InputButton.Menu ) & sound.Finished & IsServer )
+		{
+			deathSound = PlaySound( "death" );
+		}
+
+		if ( IsServer )
+		{
+			Log.Info(deathSound.ElapsedTime);
+			if ( deathSound.ElapsedTime > 1.15 )
+			{
+				var damageInfo = new DamageInfo();
+				damageInfo.Damage = 999;
+				Velocity += Vector3.Random * 1000;
+				TakeDamage( damageInfo );
+			}
 		}
 	}
 
