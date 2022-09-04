@@ -159,6 +159,8 @@ partial class SandboxPlayer : Player
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
+			var pos = GetBoneTransform( "head" );
+			SpawnParticles( pos.Position );
 			sound = PlaySound( "burp" );
 			UpdateLeaderboard( cl.PlayerId, 1, "burp" );
 		}
@@ -172,6 +174,8 @@ partial class SandboxPlayer : Player
 		{
 			if ( deathSound.ElapsedTime > 1.15 )
 			{
+				var pos = GetBoneTransform( "spine_0" );
+				SpawnParticles( pos.Position );
 				var damageInfo = new DamageInfo();
 				damageInfo.Damage = 999;
 				Velocity += Vector3.Random * 1000;
