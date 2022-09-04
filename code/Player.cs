@@ -1,10 +1,8 @@
 ﻿using Sandbox;
-using System.Collections.Generic;
 
 partial class SandboxPlayer : Player
 {
 	private TimeSince timeSinceJumpReleased;
-	private TimeSince timeSinceDeath;
 
 	private DamageInfo lastDamage;
 
