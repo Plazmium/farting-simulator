@@ -15,7 +15,9 @@
     "MinPlayers": 1,
     "GameNetworkType": "Multiplayer",
     "MapSelect": "Unrestricted",
-    "MapList": [],
+    "MapList": [
+      "plazmium.room"
+    ],
     "RankType": "Increment",
     "PerMapRanking": false,
     "LeaderboardType": "Descending",
