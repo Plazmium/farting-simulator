@@ -10,13 +10,13 @@
 		Decibels = 120
 		Sounds = 
 		[
-			resource:"sounds/burbs/boertje.vsnd",
-			resource:"sounds/burbs/burb 1.vsnd",
-			resource:"sounds/burbs/burp 2.vsnd",
-			resource:"sounds/burbs/burp 3.vsnd",
-			resource:"sounds/burbs/burb 4.vsnd",
-			resource:"sounds/burbs/burb 5.vsnd",
-			resource:"sounds/burbs/burb 6.vsnd",
+			resource:"sounds/burps/burp 1.vsnd",
+			resource:"sounds/burps/burp 2.vsnd",
+			resource:"sounds/burps/burp 3.vsnd",
+			resource:"sounds/burps/burp 4.vsnd",
+			resource:"sounds/burps/burp 5.vsnd",
+			resource:"sounds/burps/burp 6.vsnd",
+			resource:"sounds/burps/boertje.vsnd",
 		]
 		SelectionMode = "Random"
 		MaximumDistance = 3299.7227

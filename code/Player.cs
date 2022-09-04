@@ -157,8 +157,8 @@ partial class SandboxPlayer : Player
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
-			sound = PlaySound( "burb" );
-			UpdateLeaderboard( cl.PlayerId, 1, "burb" );
+			sound = PlaySound( "burp" );
+			UpdateLeaderboard( cl.PlayerId, 1, "burp" );
 		}
 		if ( Input.Pressed( InputButton.Menu ) & deathSound.Finished & IsServer )
 		{
