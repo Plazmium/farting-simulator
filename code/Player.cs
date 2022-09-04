@@ -149,9 +149,11 @@ partial class SandboxPlayer : Player
 		{
 			timeSinceJumpReleased = 1;
 		}
-		
-		if (Input.Pressed( InputButton.PrimaryAttack ) & sound.Finished & IsServer )
+
+		if ( Input.Pressed( InputButton.PrimaryAttack ) & sound.Finished & IsServer)
 		{
+			var pos = GetBoneTransform( "spine_0" );
+			SpawnParticles( pos.Position);
 			sound = PlaySound( "fart" );
 			UpdateLeaderboard( cl.PlayerId, 1, "fart" );
 		}
@@ -176,6 +178,13 @@ partial class SandboxPlayer : Player
 				TakeDamage( damageInfo );
 			}
 		}
+	}
+
+	[ClientRpc]
+	void SpawnParticles(Vector3 position)
+	{
+		Particles particles = Particles.Create( "particles/particle.vpcf" );
+		particles.SetPosition( 0, position );
 	}
 
 	async void UpdateLeaderboard(long id, float score, string boardName)
