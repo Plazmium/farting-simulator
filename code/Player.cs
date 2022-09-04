@@ -4,6 +4,7 @@ using System.Collections.Generic;
 partial class SandboxPlayer : Player
 {
 	private TimeSince timeSinceJumpReleased;
+	private TimeSince timeSinceDeath;
 
 	private DamageInfo lastDamage;
 
@@ -175,10 +176,11 @@ partial class SandboxPlayer : Player
 			if ( deathSound.ElapsedTime > 1.15 )
 			{
 				var pos = GetBoneTransform( "spine_0" );
-				SpawnParticles( pos.Position );
+				var velocity = Vector3.Random * 1000;
+				SpawnDeathParticles( pos.Position, velocity );
 				var damageInfo = new DamageInfo();
 				damageInfo.Damage = 999;
-				Velocity += Vector3.Random * 1000;
+				Velocity += velocity;
 				TakeDamage( damageInfo );
 			}
 		}
@@ -189,6 +191,21 @@ partial class SandboxPlayer : Player
 	{
 		Particles particles = Particles.Create( "particles/particle.vpcf" );
 		particles.SetPosition( 0, position );
+	}
+	[ClientRpc]
+	void SpawnDeathParticles( Vector3 position, Vector3 velocity )
+	{
+		var model = Model.Load( "models/poopemoji/poopemoji.vmdl" );
+		var ent = new Prop
+		{
+			Position = position,
+			Model = model,
+			Velocity = velocity
+		};
+		SpawnParticles( position );
+		Particles particles = Particles.Create( "particles/shitexplode.vpcf" );
+		particles.SetPosition( 0, position );
+		ent.ExplodeAsync( 60 );
 	}
 
 	async void UpdateLeaderboard(long id, float score, string boardName)
