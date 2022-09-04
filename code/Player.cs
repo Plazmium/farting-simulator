@@ -168,7 +168,6 @@ partial class SandboxPlayer : Player
 
 		if ( IsServer )
 		{
-			Log.Info(deathSound.ElapsedTime);
 			if ( deathSound.ElapsedTime > 1.15 )
 			{
 				var damageInfo = new DamageInfo();
