@@ -26,6 +26,12 @@
     "ControlModes": {
       "Keyboard": true,
       "Gamepad": true
-    }
+    },
+    "DefaultLeaderboards": [
+      "Combined Score",
+      "Fart",
+      "Burp",
+      "Death"
+    ]
   }
 }

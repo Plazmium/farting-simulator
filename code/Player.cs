@@ -154,19 +154,19 @@ partial class SandboxPlayer : Player
 			var pos = GetBoneTransform( "spine_0" );
 			SpawnParticles( pos.Position);
 			sound = PlaySound( "fart" );
-			UpdateLeaderboard( cl.PlayerId, 1, "fart" );
+			UpdateLeaderboard( cl, 1, "Fart" );
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
 			var pos = GetBoneTransform( "head" );
 			SpawnParticles( pos.Position );
 			sound = PlaySound( "burp" );
-			UpdateLeaderboard( cl.PlayerId, 1, "burp" );
+			UpdateLeaderboard( cl, 1, "Burp" );
 		}
 		if ( Input.Pressed( InputButton.Menu ) & deathSound.Finished & IsServer )
 		{
 			deathSound = PlaySound( "death" );
-			UpdateLeaderboard( cl.PlayerId, 1, "death" );
+			UpdateLeaderboard( cl, 1, "Death" );
 		}
 
 		if ( IsServer )
@@ -176,8 +176,7 @@ partial class SandboxPlayer : Player
 				var pos = GetBoneTransform( "spine_0" );
 				var velocity = Vector3.Random * 1000;
 				SpawnDeathParticles( pos.Position, velocity );
-				var damageInfo = new DamageInfo();
-				damageInfo.Damage = 999;
+				var damageInfo = new DamageInfo { Damage = 999 };
 				Velocity += velocity;
 				TakeDamage( damageInfo );
 			}
@@ -191,7 +190,7 @@ partial class SandboxPlayer : Player
 		particles.SetPosition( 0, position );
 	}
 	[ClientRpc]
-	void SpawnDeathParticles( Vector3 position, Vector3 velocity )
+	async void SpawnDeathParticles( Vector3 position, Vector3 velocity )
 	{
 		var model = Model.Load( "models/poopemoji/poopemoji.vmdl" );
 		var ent = new Prop
@@ -203,13 +202,15 @@ partial class SandboxPlayer : Player
 		SpawnParticles( position );
 		Particles particles = Particles.Create( "particles/shitexplode.vpcf" );
 		particles.SetPosition( 0, position );
-		ent.ExplodeAsync( 60 );
+		await ent.ExplodeAsync( 60 );
 	}
 
-	async void UpdateLeaderboard(long id, float score, string boardName)
+	async void UpdateLeaderboard(Client client, int score, string boardName)
 	{
-		await GameServices.UpdateLeaderboard( id,score );
-		await GameServices.UpdateLeaderboard( id,score, boardName );
+		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Score",true );
+		var seperateLeaderboard = await Leaderboard.FindOrCreate( boardName,true );
+		await combinedLeaderboard.Value.Submit( client, score, false );
+		await seperateLeaderboard.Value.Submit( client, score, false );
 	}
 
 	void SimulateAnimation( PawnController controller )
