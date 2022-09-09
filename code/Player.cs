@@ -207,12 +207,14 @@ partial class SandboxPlayer : Player
 
 	async void UpdateLeaderboard(Client client, int score, string boardName)
 	{
-		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Score",true );
-		var seperateLeaderboard = await Leaderboard.FindOrCreate( boardName,true );
+		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Score",false );
+		var seperateLeaderboard = await Leaderboard.FindOrCreate( boardName,false );
 		var combinedScore = await combinedLeaderboard.Value.GetScore( client.PlayerId );
 		var seperateScore = await seperateLeaderboard.Value.GetScore( client.PlayerId );
 		await combinedLeaderboard.Value.Submit( client, score+combinedScore.Value.Score, true );
 		await seperateLeaderboard.Value.Submit( client, score+seperateScore.Value.Score, true );
+		Log.Info( score + combinedScore.Value.Score );
+		Log.Info( score + seperateScore.Value.Score );
 	}
 
 	void SimulateAnimation( PawnController controller )
