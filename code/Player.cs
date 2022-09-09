@@ -211,8 +211,23 @@ partial class SandboxPlayer : Player
 		var seperateLeaderboard = await Leaderboard.FindOrCreate( boardName,false );
 		var combinedScore = await combinedLeaderboard.Value.GetScore( client.PlayerId );
 		var seperateScore = await seperateLeaderboard.Value.GetScore( client.PlayerId );
-		await combinedLeaderboard.Value.Submit( client, score+combinedScore.Value.Score, true );
-		await seperateLeaderboard.Value.Submit( client, score+seperateScore.Value.Score, true );
+		if ( combinedScore.HasValue )
+		{
+			await combinedLeaderboard.Value.Submit( client, score + combinedScore.Value.Score, true );
+		}
+		else
+		{
+			await combinedLeaderboard.Value.Submit( client, score, true );
+		}
+
+		if ( seperateScore.HasValue )
+		{
+			await seperateLeaderboard.Value.Submit( client, score + seperateScore.Value.Score, true );
+		}
+		else
+		{
+			await seperateLeaderboard.Value.Submit( client, score, true );
+		}
 		Log.Info( score + combinedScore.Value.Score );
 		Log.Info( score + seperateScore.Value.Score );
 	}
