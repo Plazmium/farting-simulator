@@ -18,7 +18,7 @@
     "MapList": [
       "plazmium.room"
     ],
-    "RankType": "Increment",
+    "RankType": "Best",
     "PerMapRanking": false,
     "LeaderboardType": "Descending",
     "ProjectTemplate": null,
@@ -28,7 +28,7 @@
       "Gamepad": true
     },
     "DefaultLeaderboards": [
-      "Combined Score",
+      "Combined_Score",
       "Fart",
       "Burp",
       "Death"
