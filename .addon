@@ -28,10 +28,10 @@
       "Gamepad": true
     },
     "DefaultLeaderboards": [
-      "Combined_Score",
-      "Fart",
-      "Burp",
-      "Death"
+      "Combined_Scores",
+      "Farts",
+      "Burps",
+      "Deaths"
     ]
   }
 }

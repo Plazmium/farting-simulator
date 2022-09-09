@@ -154,19 +154,19 @@ partial class SandboxPlayer : Player
 			var pos = GetBoneTransform( "spine_0" );
 			SpawnParticles( pos.Position);
 			sound = PlaySound( "fart" );
-			UpdateLeaderboard( cl, 1, "Fart" );
+			UpdateLeaderboard( cl, 1, "Farts" );
 		}
 		if ( Input.Pressed( InputButton.SecondaryAttack ) & sound.Finished & IsServer )
 		{
 			var pos = GetBoneTransform( "head" );
 			SpawnParticles( pos.Position );
 			sound = PlaySound( "burp" );
-			UpdateLeaderboard( cl, 1, "Burp" );
+			UpdateLeaderboard( cl, 1, "Burps" );
 		}
 		if ( Input.Pressed( InputButton.Menu ) & deathSound.Finished & IsServer )
 		{
 			deathSound = PlaySound( "death" );
-			UpdateLeaderboard( cl, 1, "Death" );
+			UpdateLeaderboard( cl, 1, "Deaths" );
 		}
 
 		if ( IsServer )
@@ -207,7 +207,7 @@ partial class SandboxPlayer : Player
 
 	async void UpdateLeaderboard(Client client, int score, string boardName)
 	{
-		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Score",false );
+		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Scores",false );
 		var seperateLeaderboard = await Leaderboard.FindOrCreate( boardName,false );
 		var combinedScore = await combinedLeaderboard.Value.GetScore( client.PlayerId );
 		var seperateScore = await seperateLeaderboard.Value.GetScore( client.PlayerId );
