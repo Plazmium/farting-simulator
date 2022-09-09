@@ -204,7 +204,7 @@ partial class SandboxPlayer : Player
 		particles.SetPosition( 0, position );
 		await ent.ExplodeAsync( 60 );
 	}
-
+	
 	async void UpdateLeaderboard(Client client, int score, string boardName)
 	{
 		var combinedLeaderboard = await Leaderboard.FindOrCreate( "Combined_Scores",false );
@@ -212,8 +212,8 @@ partial class SandboxPlayer : Player
 		var combinedScore = await combinedLeaderboard.Value.GetScore( client.PlayerId );
 		var seperateScore = await seperateLeaderboard.Value.GetScore( client.PlayerId );
 		if ( combinedScore.HasValue )
-		{
-			await combinedLeaderboard.Value.Submit( client, score + combinedScore.Value.Score, true );
+		{ 
+			await combinedLeaderboard.Value.Submit( client, score + combinedScore.Value.Score);
 		}
 		else
 		{
@@ -228,8 +228,6 @@ partial class SandboxPlayer : Player
 		{
 			await seperateLeaderboard.Value.Submit( client, score, true );
 		}
-		Log.Info( score + combinedScore.Value.Score );
-		Log.Info( score + seperateScore.Value.Score );
 	}
 
 	void SimulateAnimation( PawnController controller )
